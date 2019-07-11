@@ -1,0 +1,31 @@
+version: "2.1"
+
+services:
+
+  gogs:
+    container_name: gogs
+    image: gogs/gogs:latest
+    restart: always
+    networks:
+      - reverse-proxy
+      - mysqlnet
+    ports:
+      - 2222:22/tcp
+    expose: 
+      - "3000"
+    volumes:
+      - gogs_data:/data
+
+
+networks:
+
+  reverse-proxy:
+    external: true
+
+  mysqlnet:
+    external: true
+
+volumes:
+
+  gogs_data:
+    external: true

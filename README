@@ -1,0 +1,28 @@
+Let's Encrypt:
+[root@vps docker-reverse-proxy-stack]# docker exec -it dockerreverseproxystack_reverse-proxy_1 sh -c 'certbot --apache -vvv --domains git.scimetis.net -m yohan.bataille@scimetis.net --agree-tos --reinstall --redirect --hsts --non-interactive'
+
+docker exec -it mysql-server /bin/bash
+mysql -u root -p
+mysql> CREATE DATABASE IF NOT EXISTS gogs CHARACTER SET utf8 COLLATE utf8_general_ci;
+mysql> CREATE USER 'gogs'@'%' IDENTIFIED BY 'cf keepass';
+mysql> GRANT ALL PRIVILEGES ON gogs.* TO 'gogs'@'%';
+mysql> FLUSH PRIVILEGES;
+
+Aller sur cette page :
+https://git.scimetis.net/install
+
+use mysql-server as MySQL hostname in application settings
+Domaine : git.scimetis.net
+Port SSH : 2222
+URL de l'application : https://git.scimetis.net/
+cocher "activer le mode Console"
+Dans les paramètres facultatifs :
+cocher "Désactiver le formulaire d'inscription"
+créer un compte administrateur :
+yohan
+cf keepass
+yohan.bataille@scimetis.net
+
+
+It is important to respect the directives given in the paragraph Settings:
+https://github.com/gogs/gogs/tree/master/docker
