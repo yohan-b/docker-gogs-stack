@@ -14,7 +14,7 @@ services:
     expose: 
       - "3000"
     volumes:
-      - gogs_data:/data
+      - /mnt/volumes/gogs_data/data:/data
 
 
 networks:
@@ -23,9 +23,4 @@ networks:
     external: true
 
   mysqlnet:
-    external: true
-
-volumes:
-
-  gogs_data:
     external: true
