@@ -5,7 +5,6 @@ services:
   gogs:
     container_name: gogs
     image: gogs/gogs:latest
-    restart: always
     networks:
       - reverse-proxy
       - mysqlnet
